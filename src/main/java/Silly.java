@@ -37,7 +37,6 @@ public class Silly implements Comparable<Silly>{
         // This method uses the static variable and increases it.
         int to_return = my_static;
         my_static += 1;
-        System.out.println(to_return);
         return to_return;
     }
 
@@ -118,7 +117,7 @@ public class Silly implements Comparable<Silly>{
         y.countStatic();
         x.countStatic();
         x.countStatic();
-        int[] expected_values = {0,1,2,3};
+        int[] expected_values = {0, 1, 2, 3};
 
         System.out.println("The countStatic calls will return " + Arrays.toString(expected_values));
     }
