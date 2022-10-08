@@ -37,7 +37,7 @@ public class Silly implements Comparable<Silly>{
         // This method uses the static variable and increases it.
         int to_return = my_static;
         my_static += 1;
-
+        System.out.println(to_return);
         return to_return;
     }
 
@@ -73,14 +73,16 @@ public class Silly implements Comparable<Silly>{
     }
 
     /**
-     * TODO (Task 1): Create another constructor that takes in TWO parameters,
-     *       both of which are strings.
-     *       Afterwards, set this.name to the concatenation of both
-     *       strings (e.g. this.name = [first string] + [second string]).
-     *       Make sure you document this method!
+     * Creates a new Silly object.
+     * This constructor takes in two strings as arguments and concatenates them
+     *
+     * @param str1 a string for Silly's name's first part
+     * @param str2 a string for Silly's name's second part
      */
+    public Silly(String str1, String str2){
 
-
+        this.name = str1 + str2;
+    }
 
 
 
@@ -116,7 +118,7 @@ public class Silly implements Comparable<Silly>{
         y.countStatic();
         x.countStatic();
         x.countStatic();
-        int[] expected_values = {};
+        int[] expected_values = {1, 1, 2, 3};
 
         System.out.println("The countStatic calls will return " + Arrays.toString(expected_values));
     }
@@ -133,7 +135,7 @@ public class Silly implements Comparable<Silly>{
      */
     @Override
     public String toString(){
-        // TODO (Task 3): Implement the body of this method!
+        return this.name;
     }
 
     /**
@@ -159,8 +161,7 @@ public class Silly implements Comparable<Silly>{
 
         Silly other = (Silly) o; // To access .name of o, we need to cast it.
 
-        // Hint: to compare strings, we need to use .equals()
-        //       e.g. s1.equals(s2)
+        return this.name.equals(other.name);
     }
 
     /**
@@ -185,15 +186,15 @@ public class Silly implements Comparable<Silly>{
      */
     @Override
     public int compareTo(Silly other) {
-        /**
-         * TODO (Task 5): Implement the body of this method.
-         *                A positive number should be returned if this.name
-         *                is longer than other.name, a negative number if
-         *                other.name is longer than this.name, and 0 if
-         *                the lengths are equal.
-         *                You can get the length of a string by using the
-         *                .length() method.
-         */
+        if (this.name.length() > other.name.length()){
+            return 1;
+        }
+        else if (this.name.length() < other.name.length()){
+            return -1;
+        }
+        else {
+            return 0;
+        }
     }
 
     /*
